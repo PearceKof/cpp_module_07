@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 15:36:49 by blaurent          #+#    #+#             */
-/*   Updated: 2023/07/12 16:03:13 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:26:26 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ public:
 
 	Array(const Array& src) : _array(new T[src.size()]), _n(src.size())
 	{
-        for ( unsigned int i( 0 ); i < _n ; i++ )
+        for ( unsigned int i = 0 ; i < _n ; i++ )
             _array[i] = src._array[i];
     };
 
-	~Array() { delete []_array;}
+	~Array() { delete []_array; }
 
 
 
@@ -44,7 +44,7 @@ public:
             delete [] _array;
             _array = new T[rhs.size()];
             _n = rhs._n;
-            for (unsigned int i(0) ; i < _n ; i++ )
+            for ( unsigned int i = 0 ; i < _n ; i++ )
                 _array[i] = rhs._array[i];
         }
         return *this;
@@ -70,11 +70,11 @@ public:
 };
 
 template < typename T >
-std::ostream& operator<<(std::ostream& out, const Array<T>& array)
+std::ostream& operator<<(std::ostream& output, const Array<T>& array)
 {
-	for (unsigned int i(0) ; i < array.size() ; i++)
-		out << array[i] << " ";
-	return out;
+	for ( unsigned int i = 0 ; i < array.size() ; i++ )
+		output << array[i] << " ";
+	return output;
 }
 
 #endif

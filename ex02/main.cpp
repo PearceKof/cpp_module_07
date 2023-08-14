@@ -6,13 +6,11 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 15:59:37 by blaurent          #+#    #+#             */
-/*   Updated: 2023/07/12 15:59:39 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:28:18 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
-
-#define SIZE 10
 
 int main( void )
 {
@@ -20,10 +18,10 @@ int main( void )
 
     Array< float > test;
 
-    Array< int > intArray( SIZE );
-    Array< int > intArray2( SIZE - 5 );
+    Array< int > intArray( 10 );
+    Array< int > intArray2( 5 );
 
-    for ( unsigned int i = 0; i < intArray.size(); i++ )
+    for ( unsigned int i = 0 ; i < intArray.size() ; i++ )
         intArray[i] = i * 2;
 
     std::cout << "Int Array 1: " << intArray << std::endl;
@@ -34,7 +32,7 @@ int main( void )
 
     try {
         std::cout << "Accessing a valid index: " << intArray[5] << std::endl;
-        std::cout << "Accessing an invalid index: " << intArray[SIZE] << std::endl;
+        std::cout << "Accessing an invalid index: " << intArray[15] << std::endl;
     } catch ( Array< int >::OutOfBoundsException& e ) {
         std::cout << "Error: " << e.what() << std::endl;
     }
